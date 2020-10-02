@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton cb, final boolean isChecked) {
-                Snackbar sb=Snackbar.make(GL,"The switch is now "+(isChecked? "on":"off"),Snackbar.LENGTH_LONG);
+                Snackbar sb=Snackbar.make(GL,"The switch is now "+(isChecked? " on":"off"),Snackbar.LENGTH_LONG);
                 sb.setAction("Undo", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

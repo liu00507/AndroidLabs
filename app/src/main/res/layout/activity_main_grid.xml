@@ -12,20 +12,20 @@
         android:layout_gravity="fill_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Look at my GUI"
+        android:text="@string/GUI"
         android:textSize="30dp" />
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:text="Click here" />
+        android:text="@string/btntext" />
     <CheckBox
         android:id="@+id/radioButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:text="Check this out!" />
+        android:text="@string/check" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:text="Switch on/off"/>
+        android:text="@string/swh"/>
     <EditText
         android:id="@+id/edtxt"
         android:layout_width="wrap_content"
@@ -44,5 +44,5 @@
         android:inputType="textPersonName"
         android:layout_gravity="fill_horizontal"
         android:layout_columnSpan="2"
-        android:text="Type here"/>
+        android:text="@string/tl"/>
 </GridLayout>

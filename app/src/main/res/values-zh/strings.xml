@@ -4,4 +4,9 @@
     <string name="hello_message">你好，世界！</string>
     <string name="ButtonText">我是个按键</string>
     <string name="toast_message">更多信息</string>
+    <string name="GUI">看我的用户图形界面</string>
+    <string name="btntext">点我</string>
+    <string name="check">试试点我!</string>
+    <string name="swh">开关 开/关</string>
+    <string name="tl">请输入</string>
 </resources>
