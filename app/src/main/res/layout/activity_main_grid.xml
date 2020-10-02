@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:columnCount="2"
-    android:rowCount="4">
+    android:rowCount="4"
+    android:id="@+id/grid">
     <TextView
         android:id="@+id/textView"
         android:layout_columnSpan="2"
