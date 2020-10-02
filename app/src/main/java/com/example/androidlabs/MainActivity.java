@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_grid);
+        setContentView(R.layout.activity_main_relative);
        //final LinearLayout GL=findViewById(R.id.linear);
-        final GridLayout GL=findViewById(R.id.grid);
-       //final RelativeLayout GL=findViewById(R.id.relative);
+        //final GridLayout GL=findViewById(R.id.grid);
+       final RelativeLayout GL=findViewById(R.id.relative);
         Button btn=findViewById(R.id.button2);
         final Switch sw =findViewById(R.id.switch1);
         sw.setChecked(false);
