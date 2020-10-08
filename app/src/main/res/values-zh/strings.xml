@@ -9,4 +9,15 @@
     <string name="check">试试点我!</string>
     <string name="swh">开关 开/关</string>
     <string name="tl">请输入</string>
+    <string name="EmailPrompt">请输入你的电子邮箱地址：</string>
+    <string name="teh">在此输入邮箱</string>
+    <string name="PwPrompt">请输入密码：</string>
+    <string name="logbtn">登录</string>
+    <string name="yp">你的信息</string>
+    <string name="yn">你的名字:</string>
+    <string name="eyn">输入你的名字</string>
+    <string name="ye">你的的邮箱：</string>
+    <string name="eye">输入你的邮箱</string>
+    <string name="ypic">你的照片:</string>
+    <string name="ctbtn">点上面的按键拍照片</string>
 </resources>

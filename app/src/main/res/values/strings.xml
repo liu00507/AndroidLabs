@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab1</string>
+    <string name="app_name">Android lab</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I\’m a button</string>
     <string name="toast_message">Here is more Info</string>
@@ -8,4 +8,15 @@
     <string name="check">Check this out!</string>
     <string name="swh">Switch on/off</string>
     <string name="tl">Type here</string>
+    <string name="EmailPrompt">Enter yur email address:</string>
+    <string name="teh">Type email here</string>
+    <string name="PwPrompt">Type your password:</string>
+    <string name="logbtn">LOGIN</string>
+    <string name="yp">Your profile</string>
+    <string name="yn">Your name:</string>
+    <string name="eyn">Enter your name</string>
+    <string name="ye">Your email:</string>
+    <string name="eye">Enter your email</string>
+    <string name="ypic">Your picture:</string>
+    <string name="ctbtn">Click the button above to take a picture</string>
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:id="@+id/lab3profile">
+    <TextView
+    android:id="@+id/yp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/yp"
+    android:textSize="20dp" />
+    <TextView
+        android:id="@+id/yn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/yp"
+        android:text="@string/yn"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/EnterName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:layout_below="@id/yn"
+        android:text="@string/eyn"/>
+    <TextView
+        android:id="@+id/ye"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EnterName"
+        android:text="@string/ye"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/EnterEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:layout_below="@id/ye"
+        android:text="@string/eye"/>
+    <TextView
+        android:id="@+id/ypic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EnterEmail"
+        android:text="@string/ypic"
+        android:textSize="20dp" />
+    <ImageButton
+        android:id="@+id/ib"
+        android:src="@android:drawable/picture_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ypic"/>
+    <TextView
+        android:id="@+id/cba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ib"
+        android:text="@string/ctbtn"
+        android:textSize="20dp" />
+</RelativeLayout>
