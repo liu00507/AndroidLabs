@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lab3layout">
+    <TextView
+        android:id="@+id/EmailPromptTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/EmailPrompt"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/TypeEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/EmailPromptTextView"
+        android:text="@string/teh"/>
+    <TextView
+        android:id="@+id/PwPromptTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/PwPrompt"
+        android:textSize="20dp"
+        android:layout_below="@id/TypeEmail"/>
+    <EditText
+        android:id="@+id/TypePw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@id/PwPromptTextView" />
+    <Button
+        android:id="@+id/logbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TypePw"
+        android:layout_alignParentStart="true"
+        android:text="@string/logbtn" />
+</RelativeLayout>
