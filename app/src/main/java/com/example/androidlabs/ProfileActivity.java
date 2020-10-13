@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -22,7 +23,10 @@ public class ProfileActivity extends AppCompatActivity {
         Intent fromMain = getIntent();
         EditText EET=findViewById(R.id.EnterEmail);
         EET.setText(fromMain.getStringExtra("Email"));
+        Intent GotoChatRoomActivity=new Intent(ProfileActivity.this, ChatRoomActivity.class);
         mImageButton.setOnClickListener(click->dispatchTakePictureIntent());
+        Button btn=findViewById(R.id.gtchat);
+        btn.setOnClickListener(click->startActivity(GotoChatRoomActivity));
     }
     private void dispatchTakePictureIntent(){
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

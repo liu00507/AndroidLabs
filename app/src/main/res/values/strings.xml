@@ -19,4 +19,8 @@
     <string name="eye">Enter your email</string>
     <string name="ypic">Your picture:</string>
     <string name="ctbtn">Click the button above to take a picture</string>
+    <string name="gchat">Go to chat</string>
+    <string name="Tx">Send</string>
+    <string name="Rx">Receive</string>
+    <string name="hint">type here</string>
 </resources>

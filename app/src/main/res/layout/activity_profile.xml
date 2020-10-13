@@ -60,4 +60,10 @@
         android:layout_below="@id/ib"
         android:text="@string/ctbtn"
         android:textSize="20dp" />
+    <Button
+        android:id="@+id/gtchat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cba"
+        android:text="@string/gchat"/>
 </RelativeLayout>

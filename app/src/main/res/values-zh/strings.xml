@@ -20,4 +20,8 @@
     <string name="eye">输入你的邮箱</string>
     <string name="ypic">你的照片:</string>
     <string name="ctbtn">点上面的按键拍照片</string>
+    <string name="gchat">去聊天室</string>
+    <string name="Tx">发送</string>
+    <string name="Rx">接受</string>
+    <string name="hint">在此输入</string>
 </resources>
