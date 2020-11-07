@@ -6,14 +6,18 @@
     android:columnCount="2"
     android:rowCount="4"
     android:id="@+id/grid">
+
     <TextView
         android:id="@+id/textView"
-        android:layout_columnSpan="2"
-        android:layout_gravity="fill_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
         android:text="@string/GUI"
         android:textSize="30dp" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -44,5 +48,5 @@
         android:inputType="textPersonName"
         android:layout_gravity="fill_horizontal"
         android:layout_columnSpan="2"
-        android:text="@string/tl"/>
+        android:text="@string/tl" />
 </GridLayout>
