@@ -9,22 +9,29 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
 public class WeatherForecast extends AppCompatActivity {
     ProgressBar progressBar;
-    TextView value,min,max;
+    TextView value,min,max,uv;
+    ImageView image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +41,22 @@ public class WeatherForecast extends AppCompatActivity {
         value=findViewById(R.id.temp);
         min=findViewById(R.id.Mintemp);
         max=findViewById(R.id.Maxtemp);
+        uv=findViewById(R.id.UVRating);
+        image=findViewById(R.id.pic);
         ForecastQuery req = new ForecastQuery(); //creates a background thread
         req.execute("https://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric");
     }
                                                 //type1     2       3
     private class ForecastQuery extends AsyncTask<String, Integer, String> {
-
-                                    //Type1
+                                                    public boolean fileExistance(String fname){
+                                                        File file = getBaseContext().getFileStreamPath(fname);
+                                                        return file.exists();   }
+                                                    Bitmap img = null;
+                                                    //Type1
         public String doInBackground(String ... args)//same as String[]args, '...' means multiple elements notation
         {
-            String value =null,min=null,max=null;
+            String value =null,min=null,max=null, UV=null;
+
             try {
                 //String encoded = args[0] + URLEncoder.encode(args[1], "UTF-8");
                 //create a URL object of what server to contact:
@@ -86,24 +99,44 @@ public class WeatherForecast extends AppCompatActivity {
                     }
                     eventType = xpp.next(); //move to the next xml event and store it in a variable
                 }
-                Bitmap image = null;
+
                 URL url2 = new URL("http://openweathermap.org/img/w/" + iconName + ".png");
                 HttpURLConnection connection = (HttpURLConnection) url2.openConnection();
                 connection.connect();
                 int responseCode = connection.getResponseCode();
                 if (responseCode == 200) {
-                    image = BitmapFactory.decodeStream(connection.getInputStream());
+                    img = BitmapFactory.decodeStream(connection.getInputStream());
                     publishProgress(100);
                 }
                 FileOutputStream outputStream = openFileOutput( iconName + ".png", Context.MODE_PRIVATE);
-                image.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
+                img.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
                 outputStream.flush();
                 outputStream.close();
+                FileInputStream fis = null;
+//                try {    fis = openFileInput(image);   }
+//                catch (FileNotFoundException e) {    e.printStackTrace();  }
+//                Bitmap bm = BitmapFactory.decodeStream(fis);
+                URL url3 = new URL("https://api.openweathermap.org/data/2.5/uvi?appid=7e943c97096a9784391a981c4d878b22&lat=45.348945&lon=-75.759389");
+                HttpURLConnection urlConnection2 = (HttpURLConnection) url3.openConnection();
 
-//                public boolean fileExistance(String fname){
-//                    File file = getBaseContext().getFileStreamPath(fname);
-//                    return file.exists();   }
+                //wait for data:
+                InputStream response2 = urlConnection2.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(response2, "UTF-8"), 8);
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+                while ((line = reader.readLine()) != null)
+                {
+                    sb.append(line + "\n");
+                }
+                String result = sb.toString(); //result is the whole string
 
+
+                // convert string to JSON: Look at slide 27:
+                JSONObject uvReport = new JSONObject(result);
+
+                //get the double associated with "value"
+               double uvRating = uvReport.getDouble("value");
+               UV=String.valueOf(uvRating);
 
             }
             catch (Exception e)
@@ -111,7 +144,7 @@ public class WeatherForecast extends AppCompatActivity {
 
             }
 
-            return value+" "+min+" "+max;//goes to String fromDoInBackground in onPostExecute()
+            return value+" "+min+" "+max+" "+UV;//goes to String fromDoInBackground in onPostExecute()
         }//do in background(calc and other stuff)
 
         //Type 2
@@ -123,11 +156,14 @@ public class WeatherForecast extends AppCompatActivity {
         //Type3
         public void onPostExecute(String fromDoInBackground)
         {
+            image.setImageBitmap(img);
             value.setText("Temperture: "+fromDoInBackground.split(" ")[0]);
             min.setText("Minimum Temperture: "+fromDoInBackground.split(" ")[1]);
             max.setText("Maxmum Temperture: "+fromDoInBackground.split(" ")[2]);
+            uv.setText("UV Rating: "+fromDoInBackground.split(" ")[3]);
             progressBar.setVisibility(View.INVISIBLE);
            //Log.i("HTTP", fromDoInBackground);
         }//gets called after doinbackground and no more progress update
+
     }
 }
